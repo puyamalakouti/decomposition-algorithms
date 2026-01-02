@@ -9,7 +9,6 @@ from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from docplex.mp.model import Model
 
-# --- Optional: CPLEX callback API (needed only for callback-based method)
 try:
     import cplex
     from cplex.callbacks import LazyConstraintCallback, UserCutCallback
