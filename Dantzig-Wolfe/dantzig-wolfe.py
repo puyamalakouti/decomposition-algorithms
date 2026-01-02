@@ -1,18 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Two-Phase Dantzig–Wolfe Column Generation for a Multi-Commodity Transportation Problem
-
-Highlights:
-- Restricted master (primal) solved each iteration
-- Dual multipliers obtained robustly by solving the explicit dual LP
-  (avoids relying on solver-side dual APIs that may be unavailable)
-- Phase 1: feasibility via a global nonnegative slack r in arc capacities, objective min r
-- Phase 2: optimize total transportation cost with r fixed to 0
-
-Run:
-  python column_generation_dw.py
-"""
-
 from __future__ import annotations
 
 import time

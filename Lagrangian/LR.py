@@ -1,26 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Feature-Selection SVM via Lagrangian Relaxation + Projected Subgradient
-
-Implements:
-  - Preprocessing to build per-feature bounds u_k:
-      Step 1: Solve an LP relaxation -> define K1 as features with nonzero weights
-      Step 2: Solve a restricted mixed-binary model with big-u and fixed y:
-              y_k = 1 for k in K1, and y_k = 0 otherwise  -> z_hat
-      Step 3: Solve a "max L1 under objective budget z_hat" model -> u_k
-  - Lagrangian LP z(λ) (paper formulation)
-  - Projected subgradient updates with bounds: 0 <= λ_k <= D/u_k
-  - Feasible upper bound at each iteration by solving a restricted mixed-binary model on K(λ)
-
-Excel format (IMPORTANT):
-  sheet 'x': header row (feature names), first column as sample IDs (index)
-  sheet 'y': NO header, two columns: [sample_id, label]
-             label in {-1,+1} or {0,1} (0 -> -1)
-
-Run:
-  python -u feature_selection_lr_subgradient.py --xlsx "data_cancer.xlsx" --C 10 --D 0.01 --solve_lr --plot
-"""
-
 from __future__ import annotations
 
 import argparse
